@@ -15,7 +15,7 @@ Mat frame;
 int key;
 
 int main(){
-    test.init(Size(400, 300));
+    test.init(Size(600, 400));
     
     namedWindow(wnd_name);
     setMouseCallback(wnd_name, onMouse);
