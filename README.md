@@ -3,11 +3,15 @@ This repository implement basic algorithms for voronoi diagram and visualize the
 
 ## Bowyer Watson Method
 
+source: *bowyer_watson.h, bowyer_watson.cpp, bowyer_watson_test.cpp*
+
 For finding bad triangulation, we can use some data structure to speed. (If you have considerable fine meshes)
 
 ![Bowyer Watson Method](figures/bowyer_watson.png)
 
 ## Directly compute for every pixel
+
+source: *direct.h, direct.cpp, direct_test.cpp*
 
 We compute distance map preliminary to speed up.
 
@@ -25,5 +29,10 @@ Cubic distance
 
 ![Cubic distance](figures/direct_cubic.png)
 
+## OpenCV Subdiv2D class (Bowyer Watson Method)
+
+source; *cv_example.cpp*
+
+![OpenCV Subdiv2D](figures/cv_bowyer_watson.png)
 
 ## Others...
