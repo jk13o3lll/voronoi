@@ -60,7 +60,7 @@ bool Triangle::nextto(const Triangle &t) const{
            (p2 == t.p2 && p3 == t.p3) || (p2 == t.p3 && p3 == t.p2);
 }
 void Triangle::draw(Mat &frame) const{
-    Scalar red(0, 0, 255);
+    Vec3b red(0, 0, 180);
     line(frame, p1, p2, red);
     line(frame, p1, p3, red);
     line(frame, p2, p3, red);
@@ -109,14 +109,14 @@ void BowyerWatson::draw(Mat &frame){
     size_t i, j, k, n;
 
     // draw
-    frame.create(wndsz.height, wndsz.width, CV_32FC3); // if already exist then no new create
-    frame.setTo(Scalar(0));
+    frame.create(wndsz.height, wndsz.width, CV_8UC3); // if already exist then no new create
+    frame.setTo(Vec3b(0, 0, 0));
     if(draw_flag & 0x1)
         for(i = 0, n = triangulation.size(); i < n; ++i)
             triangulation[i].draw(frame);
     if(draw_flag & 0x10){
         // connect circum centre with neighbor
-        Scalar green(0, 255, 0), red(0, 0, 255);
+        Vec3b green(0, 255, 0);
         for(i = 0, n = triangulation.size(); i < n; ++i){
             for(j = i + 1, k = 0; j < n && k < 3; ++j)
                 if(triangulation[i].nextto(triangulation[j])){
